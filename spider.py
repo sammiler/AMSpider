@@ -70,7 +70,9 @@ for item in soup.find_all('a',{'class':'product-lockup__link svelte-1b4jqbu'}):
 print(len(albumset))
 outPutFile = "Artist.txt"
 outFile = open(outPutFile,"wb")
-spaceStr = "    "
+outFile.truncate()
+outFile.seek(0)
+spaceStr = "\n"
 for item in albumset:
     print(item)
     outFile.write(str(item).encode('utf-8'))
