@@ -23,7 +23,7 @@ driver = webdriver.Chrome(service=service, options=options)
 driver.maximize_window()
 # 打开网页
 
-url = 'https://music.apple.com/us/artist/led-zeppelin/994656'
+url = 'https://music.apple.com/us/artist/the-rolling-stones/1249595/see-all?section=full-albums'
 
 driver.get(url)
 
@@ -69,7 +69,7 @@ if url.find("full-albums") != -1:
     htmlfile = open("Artist.html", 'r', encoding='utf-8')
     htmlhandle = htmlfile.read()
     soup = BeautifulSoup(htmlhandle, 'lxml')
-    for item in soup.find_all('a',{'class':'product-lockup__link svelte-1b4jqbu'}):
+    for item in soup.find_all('a',{'data-testid':'product-lockup-title'}):
       albumset.add(item['href'])
     print(len(albumset))
     outPutFile = "Artist.txt"
