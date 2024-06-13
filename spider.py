@@ -23,7 +23,7 @@ driver = webdriver.Chrome(service=service, options=options)
 driver.maximize_window()
 # 打开网页
 
-url = 'https://music.apple.com/us/artist/the-rolling-stones/1249595/see-all?section=full-albums'
+url = 'https://music.apple.com/us/artist/pink-floyd/487143/see-all?section=full-albums'
 
 driver.get(url)
 
@@ -98,7 +98,7 @@ else:
     htmlhandle = htmlfile.read()
     soup = BeautifulSoup(htmlhandle, 'lxml')
     for item in soup.find_all('div',{'class':'section svelte-gla0uw','aria-label':'Albums'}):
-        for albumItem in item.find_all('a',{'class':'product-lockup__link svelte-1b4jqbu'}):
+        for albumItem in item.find_all('a',{'data-testid':'product-lockup-title'}):
             albumset.add(albumItem['href'])
     print(len(albumset))
     outPutFile = "Artist.txt"
