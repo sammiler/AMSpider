@@ -1,0 +1,44 @@
+adb install C:\Users\sammiler\MyFile\Download\com.aefyr.sai.fdroid_60.apk
+adb push C:\Users\sammiler\MyFile\Download\com.apple.android.music_3.6.0-beta-1109_2arch_2dpi_d17c9d486201413b9aa9a1d62bc7b1d3_apkmirror.com.apkm /sdcard/
+adb push C:\Users\sammiler\MyFile\Download\frida-server-16.2.1-android-x86_64\frida-server-16.2.1-android-x86_64 /data/local/tmp/
+adb shell
+su
+cd /data/local/tmp
+chmod 777 frida-server-16.2.1-android-x86_64
+
+
+
+
+
+
+adb kill-server
+adb start-server
+
+
+
+关闭Docker
+打开加速
+
+bcdedit /set hypervisorlaunchtype off
+
+restart 
+
+sc query intelhaxm
+
+
+
+用于开启Docker
+bcdedit /set hypervisorlaunchtype auto
+
+
+netstat -antup|grep 27042
+
+
+
+
+adb forward tcp:10020 tcp:10020 && adb forward tcp:20020 tcp:20020 && adb shell su 0 '/data/local/tmp/frida-server-16.2.1-android-x86_64'
+
+frida -U -l agent.js -f com.apple.android.music
+
+go run main.go  C:\Users\sammiler\MyFile\Gitproject\AMSpider\Artist.txt
+
