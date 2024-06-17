@@ -23,7 +23,7 @@ driver = webdriver.Chrome(service=service, options=options)
 driver.maximize_window()
 # 打开网页
 
-url = 'https://music.apple.com/us/artist/pink-floyd/487143/see-all?section=full-albums'
+url = 'https://music.apple.com/us/artist/david-bowie/551695/see-all?section=live-albums'
 
 driver.get(url)
 
@@ -103,7 +103,7 @@ else:
     print(len(albumset))
     outPutFile = "Artist.txt"
     outFile = open(outPutFile,"wb")
-    outFile.truncate()
+    outFile.truncate(0)
     outFile.seek(0)
     spaceStr = "\n"
     for item in albumset:
